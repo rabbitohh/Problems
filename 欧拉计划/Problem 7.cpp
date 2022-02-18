@@ -1,5 +1,6 @@
 /*http://pe-cn.github.io/7/
-https://projecteuler.net/problem=7*/#include<cstdio>
+https://projecteuler.net/problem=7*/
+#include<cstdio>
 #include<iostream>
 #include<algorithm>
 using namespace std;
