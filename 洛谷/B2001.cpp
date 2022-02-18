@@ -1,3 +1,4 @@
+/*https://www.luogu.com.cn/problem/B2001*/
 #include<cstdio>
 #include<iostream>
 using namespace std;
