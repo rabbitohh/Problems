@@ -10,7 +10,7 @@ int main()
 	long long ans;
 	for(int i=1;i<=988;i++)
 	{
-		for(int j=i;j<=i+13;j++)
+		for(int j=i;j<=i+12;j++)
 			a*=(s[j]-'0');
 		ans=max(ans,a);
 		a=1;
