@@ -1,3 +1,5 @@
+/*http://pe-cn.github.io/6/
+https://projecteuler.net/problem=6*/
 #include<cstdio>
 #include<iostream>
 #include<algorithm>
