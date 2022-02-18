@@ -1,3 +1,5 @@
+/*http://pe-cn.github.io/4/
+https://projecteuler.net/problem=4*/
 #include<cstdio>
 #include<iostream>
 using namespace std;
