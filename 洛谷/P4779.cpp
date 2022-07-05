@@ -2,14 +2,18 @@
 #include<cstdio>
 #include<queue>
 #include<cstring>
+#include<vector>
 using namespace std;
+typedef pair<int,int> pii;
+typedef vector<pii> vct;
+typedef greater<pii> grt;
 struct QwQ
 {
 	int from,to;
 	int val;
 	int next;
 };
-QwQ T[1000001];
+QwQ T[400001];
 int cnt;
 int head[100001];
 void add_(int u,int v,int w)
@@ -20,40 +24,37 @@ void add_(int u,int v,int w)
 	T[cnt].next=head[u];
 	head[u]=cnt;
 }
-queue<int>Q;
-int vis[100000];
-int dis[100000];
+priority_queue<pii,vct,grt>q;
+int vis[100001];
+int dis[100001];
 int main()
 {
 	memset(head,-1,sizeof(head));
-	for(int i=0;i<100000;i++)
-		dis[i]=2147483647;
+	memset(dis,0x3f,sizeof(dis));
 	int n,m,s;
 	cin>>n>>m>>s;
 	for(int i=1;i<=m;i++)
 	{
-		int u,v,w;
-		cin>>u>>v>>w;
-		add_(u,v,w);
-	}
-	Q.push(s);
-	vis[s]=1;
+		int a,b,c; 
+		cin>>a>>b>>c;
+		add_(a,b,c);
+	} 
+	q.push({0,s});
 	dis[s]=0;
-	while(!Q.empty())
+	while(!q.empty())
 	{
-		int u=Q.front();
-		Q.pop();
-		vis[u]=0;
+		int u=q.top().second;
+		q.pop();
+		//cout<<u;
+		if(vis[u]) continue;
+		vis[u]=1;
 		for(int i=head[u];i!=-1;i=T[i].next)
 		{
-			if(dis[T[i].to]>dis[u]+T[i].val)
+			if((!vis[T[i].to])&&dis[T[i].to]>dis[u]+T[i].val)
 			{
-				if(!vis[T[i].to])
-					Q.push(T[i].to);
 				dis[T[i].to]=dis[u]+T[i].val;
-				vis[T[i].to]=1;
+				q.push({dis[T[i].to],T[i].to});
 			}
-			
 		}
 	}
 	for(int i=1;i<=n;i++)
@@ -62,3 +63,4 @@ int main()
 	}
 	return 0;
 }
+
